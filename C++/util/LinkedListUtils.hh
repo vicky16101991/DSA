@@ -29,4 +29,19 @@ LinkedList* create(bool isHead, LinkedList* head = nullptr){
         create(false,head->next);
     }
     return head;
-}   
+}
+
+LinkedList* deleteNode(int val, LinkedList* head){
+    LinkedList* tHead = head;
+    LinkedList* prev = nullptr;
+    while(tHead != nullptr){
+        if(tHead->data == val){
+            prev->next = tHead->next;
+            return head;
+        }
+        prev = tHead;
+        tHead = tHead->next;
+    }
+    cout<<"The value to be deleted is not found"<<endl;
+    return head;
+}
