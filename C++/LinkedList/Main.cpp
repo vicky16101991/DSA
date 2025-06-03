@@ -9,7 +9,13 @@ int main(){
     cin>>x;
     head = deleteNode(x,head);
     printLL(head);
-    LinkedList* nHead = reverseLL(head);
+    LinkedList* tmp = head;
+    LinkedList* nHead = reverseLL(tmp);
     printLL(nHead);
+    head = reverseLL(nHead);
+    LinkedList* nnHead = reverseKGroup(head, 2);
+    printLL(nnHead);
+    head = reverseKGroup(nnHead, 2);
+    printLL(head);
     return 0;
 }

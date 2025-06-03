@@ -62,3 +62,27 @@ LinkedList* reverseLL(LinkedList* head){
     head->next = nullptr;
     return nHead;    
 }
+
+LinkedList* reverseLLForKGroup(LinkedList* head, int k){
+    if( head == nullptr || head->next == nullptr ) return head;
+    if(k == 1) return head;
+    LinkedList* nHead = reverseLLForKGroup(head->next,k-1);
+    LinkedList* tmp = head->next;
+    tmp->next = head;
+    head->next = nullptr;
+    return nHead;    
+}
+
+LinkedList* reverseKGroup(LinkedList* head, int k){
+    if(head == nullptr) return head;
+    LinkedList* tHead = head;
+    int tK = k;
+    while(tK > 0){
+        tHead = tHead->next;
+        if(tHead == nullptr) return head;
+        tK--;
+    }
+    LinkedList* newHead = reverseLLForKGroup(head, k);
+    head->next = reverseKGroup(tHead, k);
+    return newHead;
+}
