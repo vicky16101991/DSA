@@ -32,6 +32,11 @@ LinkedList* create(bool isHead, LinkedList* head = nullptr){
 }
 
 LinkedList* deleteNode(int val, LinkedList* head){
+    if(head->data == val) 
+    {
+        head = head->next;
+        return head;
+    }
     LinkedList* tHead = head;
     LinkedList* prev = nullptr;
     LinkedList* deletedNode = nullptr;
