@@ -5,5 +5,7 @@ int main(){
     printLL(head);
     deleteNode(3,head);
     printLL(head);
+    LinkedList* nHead = reverseLL(head);
+    printLL(nHead);
     return 0;
 }

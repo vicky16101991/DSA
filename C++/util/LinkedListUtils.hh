@@ -48,3 +48,12 @@ LinkedList* deleteNode(int val, LinkedList* head){
     cout<<"The value to be deleted is not found"<<endl;
     return head;
 }
+
+LinkedList* reverseLL(LinkedList* head){
+    if( head == nullptr || head->next == nullptr ) return head;
+    LinkedList* nHead = reverseLL(head->next);
+    LinkedList* tmp = head->next;
+    tmp->next = head;
+    head->next = nullptr;
+    return nHead;    
+}
